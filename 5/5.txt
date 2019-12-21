@@ -1,0 +1,53 @@
+#Masuk mysql pada cmd
+  mysql -u root
+
+#Membuat database
+  create database count;
+
+#Menggunakan datasebe count
+  use count;
+
+#Membuat table tb_caleg
+  create table tb_caleg(
+	id int,
+	name varchar(225),
+	id_partai int,
+	earned_vote int,
+	PRIMARY KEY (id));
+
+#Membuat table tb_partai
+  create table tb_partai(
+	id int,
+	name varchar(225));
+
+#Querty isert data pada table caleg
+  insert into `tb_caleg`(id, name, id_partai, earned_vote) values(1, "Sera", 2, 100);
+  insert into `tb_caleg`(id, name, id_partai, earned_vote) values(2, "Dobleh", 1, 99);
+
+#Query insert data pada table tb_partai
+  insert into `tb_partai`(id, name) values(1, "Cilacap Santai");
+  insert into `tb_partai`(id, name) values(2, "Cilacap Sejahtera");
+  insert into `tb_partai`(id, name) values(3, "Cilacap Aman");
+
+#Merubah nama partai Cilacap Sejahtera menjadi Cilacap Makmur
+  update tb_partai set name="Cilacap Makmur" where id = 2;
+
+#Tambah data caleg
+  insert into `tb_caleg`(id, name, id_partai, earned_vote) values(3, "Kabur", 3, 0);
+  insert into `tb_caleg`(id, name, id_partai, earned_vote) values(4, "Astina", 3, 0);
+
+#Ubah dan tambahkan earn vote pada data Kabur sebesar 69 dan pada data Astina sebesar 21
+  update `tb_caleg` set earned_vote=69  where id = 3;
+  update `tb_caleg` set earned_vote=21  where id = 4;
+
+#Ubahlah 1 caleg dengan nama Sera dengan ketentuan berikut, "Is Bos","2","70"
+  update `tb_caleg` set name="Is Bos", id_partai=2, earned_vote=70 where id = 1;
+
+#Hapus caleg nama Astina
+  delete from tb_caleg where id = 4;
+
+#Menampilkan data caleg beserta nama partai yang di inisialisasikan menjadi partai menggunakan syntax JOIN
+  select tb_caleg.id, tb_caleg.name, tb_caleg.id_partai, tb_caleg.earned_vote, tb_partai.name from tb_caleg INNER JOIN tb_partai ON tb_partai.id=tb_caleg.id_partai;
+
+#Tampilkan data caleg dengan nama "Kabur" beserta nama partai yang mengusung
+select tb_caleg.id, tb_caleg.name, tb_caleg.id_partai, tb_caleg.earned_vote, tb_partai.name from tb_caleg INNER JOIN tb_partai ON tb_partai.id=tb_caleg.id_partai where tb_caleg.name="Kabur";

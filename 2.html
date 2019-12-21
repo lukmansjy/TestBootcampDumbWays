@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+    <title>Form Validasi</title>
+    <style>
+    .error{
+        color: red;
+        padding-left: 6px;
+    }
+    input{
+        margin-top: 8px;
+    }
+    label{
+        display: inline-block;
+        width: 90px;
+    }
+    button{
+        margin-left: 94px;
+        margin-top: 8px;
+    }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        <label>Username</label>
+        <input type="text" id="username"><span id="errorUsernname" class="error"></span><br>
+        
+        <label>Email</label>
+        <input type="text" id="email"><span id="errorEmail" class="error"></span><br>
+
+        <label>Password</label>
+        <input type="password" id="password"><span id="errorPassword" class="error"></span><br>
+
+        <button onclick="btnSubmit()">Submit</button>
+    </form>
+    <span id="valid"></span>
+</body>
+
+<script>
+function cekUsername(username){
+    if(username.match(/^[a-z]+$/) && username.length == 6){
+        document.getElementById("errorUsernname").innerText = "";
+        return true;
+    }else{
+        document.getElementById("errorUsernname").innerText = "Username harus huruf kecil dan 6 karakter";
+        return false;
+    }
+}
+
+function cekEmai(email){
+    if(email.match(/^[a-z]+@+[a-z]+.+[a-z]+$/)){
+        document.getElementById("errorEmail").innerText = "";
+        return true;
+    }else{
+        document.getElementById("errorEmail").innerText = "Format email tidak valid, hanya boleh huruf keci";
+        return false;
+    }
+}
+
+function cekPassword(password){
+    if(password.match(/^([A-Z]{1})+[a-z0-9]+$/) && password.length >= 8){
+        document.getElementById("errorPassword").innerText ="";
+        return true;
+    }else{
+        document.getElementById("errorPassword").innerText = "Password minimal 8 karakter dan harus menggunakan kombinasi huruf besar";
+        return false;
+    }
+}
+
+function btnSubmit(){
+    event.preventDefault();
+    var username = document.getElementById("username").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+
+    var validUsername = cekUsername(username);
+    var validEmail = cekEmai(email);
+    var validPassword = cekPassword(password)
+
+    if(cekUsername(username) && cekEmai(email) && cekPassword(password)){
+        document.getElementById("valid").innerText = "Seluruh form sudah diisi dengan benar";
+    }else{
+        document.getElementById("valid").innerText = "";
+    }
+    
+    
+}
+
+</script>
+</html>

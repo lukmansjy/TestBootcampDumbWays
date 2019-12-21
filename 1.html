@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<head>
+    <title>Form Registrasi</title>
+    <style>
+    body{
+        font-family: Arial, sans-serif;
+    }
+    .formItem{
+        display: block;
+    }
+    .labelInput{
+        display: block;
+        margin: 25px 0 8px 0;
+        font-weight: bold;
+        color:  rgb(100, 100, 100);
+        font-size: 14px;
+    }
+    .formItem > div{
+        margin-top: 12px;
+    }
+    #labelIslam{
+        background-color: #d1dffc;
+        padding: 3px 10px;
+        border-radius: 15px;
+    }
+    .formItem > input{
+        border: 1px rgb(212, 210, 210) solid;
+        line-height: 25px;
+        width: 300px;
+    }
+    select{
+        border: 1px rgb(212, 210, 210) solid;
+        height: 25px;
+        width: 150px;
+    }
+    textarea{
+        border: 1px rgb(212, 210, 210) solid;
+        line-height: 25px;
+        width: 300px;
+    }
+    #formButton{
+        margin: 30px 0 8px 0;
+    }
+    #buttonSubmit{
+        padding: 10px 15px;
+        color: white;
+        background-color: rgb(63, 130, 245);
+        border: 1px rgb(226, 226, 226) solid;
+        border-radius: 4px;
+        margin-right: 12px;
+    }
+    #buttonEdit{
+        padding: 8px 15px;
+        color: rgb(100, 100, 100);
+        background-color: white;
+        border: 1px rgb(226, 226, 226) solid;
+        border-radius: 4px;
+    }
+    #iconStar{
+        color: yellow;
+        font-size: 15px;
+    }
+
+    /* ##STYLE LABEL INPUT ITEM## */
+    #labelKristen{
+        background-color: #d6effb;
+        padding: 3px 10px;
+        border-radius: 15px;
+    }
+    #labelKatolik{
+        background-color: #ccf3e9;
+        padding: 3px 10px;
+        border-radius: 15px;
+    }
+    #labelRenang{
+        background-color: #d1dffc;
+        padding: 3px 10px;
+        border-radius: 15px;
+    }
+    #labelMancing{
+        background-color: #d6effb;
+        padding: 3px 10px;
+        border-radius: 15px;
+    }
+    #labelGame{
+        background-color: #ccf3e9;
+        padding: 3px 10px;
+        border-radius: 15px;
+    }
+    #labelGibah{
+        background-color: #d9f5c9;
+        padding: 3px 10px;
+        border-radius: 15px;
+    }
+    #labelProgramming{
+        background-color: #fceabc;
+        padding: 3px 10px;
+        border-radius: 15px;
+    }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        <div class="formItem">
+            <label for="nama" class="labelInput">Nama Lengkap</label>
+            <input type="text" id="nama">
+        </div>
+
+        <div class="formItem">
+            <label for="tmpLahir" class="labelInput">Tempat Lahir</label>
+            <select name="tempatLahir" id="tmpLahir">
+                <option disabled selected></option>
+                <option value="Tangerang">Tangerang</option>
+                <option value="Jakarta">Jakarta</option>
+                <option value="Bandung">Bandung</option>
+                <option value="Solo">Solo</option>
+                <option value="Surabaya">Surabaya</option>
+            </select>
+        </div>
+
+        <div class="formItem">
+            <label for="tglLahir" class="labelInput">Tanggal Lahir</label>
+            <input type="text" id="tglLahir" placeholder="mmmm dd, yyyy">
+        </div>
+
+        <div class="formItem">
+            <label for="noHp" class="labelInput">No. Hp</label>
+            <input type="number" id="noHp">
+        </div>
+
+        <div class="formItem">
+            <label for="alamat" class="labelInput">Alamat</label>
+            <textarea id="alamat"></textarea>
+        </div>
+
+        <div class="formItem">
+            <label for="pend" class="labelInput">Pendidikan Terakhir</label>
+            <select name="pendidikan" id="pend">
+                <option disabled selected></option>
+                <option value="SD">SD</option>
+                <option value="SMP">SMP</option>
+                <option value="SMA">SMA</option>
+                <option value="SMK">SMK</option>
+                <option value="D1">D1</option>
+                <option value="S1">S1</option>
+                <option value="S2">S2</option>
+                <option value="S3">S3</option>
+            </select>
+        </div>
+
+        <div class="formItem">
+            <label class="labelInput">Agama</label>
+            <div>
+                <input type="radio" name="agama" value="islam" id="islam">
+                <label for="islam" id="labelIslam">Islam</label>
+            </div>
+            <div>
+                <input type="radio" name="agama" value="kristen" id="kristen">
+                <label for="kristen" id="labelKristen">Kristen</label>
+            </div>
+            <div>
+                <input type="radio" name="agama" value="katolik" id="katolik">
+                <label for="katolik" id="labelKatolik">Katolik</label>
+            </div>
+        </div>
+
+        <div class="formItem">
+            <label class="labelInput">Hobi</label>
+            <div>
+                <input type="checkbox" name="hobi" value="renang" id="renang">
+                <label for="renang" id="labelRenang">Renang</label>
+            </div>
+            <div>
+                <input type="checkbox" name="hobi" value="mancing" id="mancing">
+                <label for="mancing" id="labelMancing">Mancing</label>
+            </div>
+            <div>
+                <input type="checkbox" name="hobi" value="game" id="game">
+                <label for="game" id="labelGame">Game</label>
+            </div>
+            <div>
+                <input type="checkbox" name="hobi" value="gibah" id="gibah">
+                <label for="gibah" id="labelGibah">Gibah</label>
+            </div>
+            <div>
+                <input type="checkbox" name="hobi" value="programming" id="programming">
+                <label for="programming" id="labelProgramming">Programming</label>
+            </div>
+            
+        </div>
+
+        <div id="formButton">
+            <button type="submit" id="buttonSubmit">Submit</button>
+            <button id="buttonEdit">
+                <span id="iconStar">&#9733;</span> Edit Label
+            </button>
+        </div>
+    </form>
+</body>
+</html>
