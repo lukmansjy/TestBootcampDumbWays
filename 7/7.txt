@@ -1,0 +1,20 @@
+#Masuk mysql pada cmd
+  mysql -u root
+
+#Membuat database
+  create database penjualan;
+
+#Menggunakan datasebe count
+  use penjualan;
+
+#Membuat table 
+  create table customers(
+    id int,
+    frish_name varchar(225),
+    last_name varchar(225),
+    email varchar(225),
+    address varchar(225),
+    city varchar(225),
+    state varchar(225),
+    zip_code int,
+    PRIMARY KEY (id));
